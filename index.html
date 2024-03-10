@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Documeny</title>
+  </head>
+  <body>
+    <h1>CALCULATOR</h1>
+    <div id="parent">
+      <div id="child">
+        <input id="screen" type="text" style="padding: 6px" />
+        <div style="display: flex; justify-content: space-evenly">
+          <button onclick="ac()">AC</button>
+          <button onclick="del()">DEL</button>
+          <button onclick="add(this.value)" value="+">+</button>
+          <button onclick="add(this.value)" value="%">%</button>
+        </div>
+        <div style="display: flex; justify-content: space-evenly">
+          <button onclick="add(this.value)" value="7">7</button>
+          <button onclick="add(this.value)" value="8">8</button>
+          <button onclick="add(this.value)" value="9">9</button>
+          <button onclick="add(this.value)" value="/">/</button>
+        </div>
+        <div style="display: flex; justify-content: space-evenly">
+          <button onclick="add(this.value)" value="4">4</button>
+          <button onclick="add(this.value)" value="5">5</button>
+          <button onclick="add(this.value)" value="6">6</button>
+          <button onclick="add(this.value)" value="*">*</button>
+        </div>
+        <div style="display: flex; justify-content: space-evenly">
+          <button onclick="add(this.value)" value="1">1</button>
+          <button onclick="add(this.value)" value="2">2</button>
+          <button onclick="add(this.value)" value="3">3</button>
+          <button onclick="add(this.value)" value="-">-</button>
+        </div>
+        <div style="display: flex; justify-content: space-evenly">
+          <button onclick="add(this.value)" value=".">.</button>
+          <button onclick="add(this.value)" value="0">0</button>
+          <button onclick="out()">=</button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+<style>
+  #parent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: blanchedalmond;
+  }
+  #child {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+    background-color: lightblue;
+  }
+</style>
+<script>
+  screen = document.getElementById("screen");
+  text = "";
+  function add(key) {
+    text += key;
+    screen.value = text;
+  }
+  function del() {
+    text = text.substring(0, text.length - 1);
+    screen.value = text;
+  }
+  function ac() {
+    screen.value = "";
+    text = "";
+  }
+  function out() {
+    screen.value = eval(text);
+    text = screen.value;
+  }
+</script>
